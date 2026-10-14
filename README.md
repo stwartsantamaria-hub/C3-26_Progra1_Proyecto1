@@ -19,4 +19,16 @@ Este repositorio contiene el desarrollo del **Primer Avance del Proyecto Integra
 
 ---
 
-## 📁 Estructura del Repositorio
+## 📁 Estructura del Repositorio C3-26_Progra1_Proyecto1
+mision-orbita/
+│
+├── README.md
+│
+├── avance1/
+│   ├── ejercicio1_recursos.py
+│   ├── ejercicio2_combustible.py
+│   ├── ejercicio3_soporte_tripulacion.py
+│   └── ejercicio4_autorizacion.py
+│
+└── documentacion/
+    └── avance1.pdf
