@@ -14,8 +14,23 @@ Este repositorio contiene el desarrollo del **Primer Avance del Proyecto Integra
 
 ---
 
-## 👥 Integrate: Stwart Santamaria Artavia
+### Descripción de los Ejercicios
 
+* **Ejercicio 1: Cálculo de recursos necesarios para una misión**  
+  Solicita el nombre de la misión, la cantidad de tripulantes y los días estimados de viaje para calcular de forma secuencial el combustible necesario de ida, regreso y reserva, así como el oxígeno, energía y provisiones requeridas.
+
+* **Ejercicio 2: Verificación de combustible**  
+  Solicita el combustible disponible, el requerido para la ida y para el regreso. Calcula el total requerido con reserva de emergencia y el margen adicional, mostrando una advertencia si el margen es menor a 10 unidades mediante una condicional simple.
+
+* **Ejercicio 3: Verificación del soporte para la tripulación**  
+  Solicita el oxígeno y las provisiones tanto disponibles como requeridas. Evalúa mediante una condicional doble si la nave cuenta con recursos suficientes para mantener a la tripulación durante el viaje sin especificar cuál recurso presenta déficit.
+
+* **Ejercicio 4: Autorización inicial de lanzamiento**  
+  Solicita la disponibilidad y los requerimientos de combustible, oxígeno, energía y provisiones. Realiza una verificación general mediante una condicional doble compuesta para autorizar o rechazar el lanzamiento, garantizando que exista combustible suficiente para el viaje de regreso.
+
+---
+
+## 👥 Integrate: Stwart Santamaria Artavia
 
 ---
 
