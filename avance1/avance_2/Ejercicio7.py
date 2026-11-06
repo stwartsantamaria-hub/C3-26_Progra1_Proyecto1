@@ -36,7 +36,7 @@ while en_exploracion:
             energia_disponible = energia_disponible - 8
             actividades_realizadas = actividades_realizadas + 1
             puntos_cientificos = puntos_cientificos + 10
-            print("\n Actividad realizada: Analizar terreno. Puntos obtenidos: 10")
+            print("\nActividad realizada: Analizar terreno. Puntos obtenidos: 10")
             print("Energía restante:", energia_disponible, "unidades | Provisiones restantes:", provisiones_disponibles, "unidades")
             
         else:
