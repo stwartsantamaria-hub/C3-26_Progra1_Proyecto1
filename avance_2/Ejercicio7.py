@@ -1,12 +1,13 @@
 # ==============================================================================
-# Archivo: ejercicio7_actividades_exploracion_cientifica.py
-# Curso: SOFT-01 Principios de Programación 1 -  SCV6
-# Integrante: Stwart Santamaria Artavia 
+# Archivo: ejercicio7_exploracion.py
+# Curso: SOFT-01 Principios de Programación 1 - Sección SCV6
+# Integrante: Stwart Santamaria Artavia
 # Fecha: 21/10/2026
-# Versión: 2.0
+# Versión: 2.1
 # Descripción: Simula la etapa de exploración científica en el destino mediante un
 #              menú iterativo. Controla el consumo de energía y provisiones, y 
-#              acumula puntos científicos, actividades realizadas y muestras.
+#              acumula puntos científicos, actividades realizadas y muestras, 
+#              mostrando los recursos restantes tras cada actividad exitosa.
 # ==============================================================================
 
 # --- ENTRADA DE DATOS INICIALES ---
@@ -38,7 +39,6 @@ while en_exploracion:
             puntos_cientificos = puntos_cientificos + 10
             print("\nActividad realizada: Analizar terreno. Puntos obtenidos: 10")
             print("Energía restante:", energia_disponible, "unidades | Provisiones restantes:", provisiones_disponibles, "unidades")
-            
         else:
             print("Recursos insuficientes para realizar la actividad. La exploración finaliza.")
             en_exploracion = False
@@ -51,7 +51,8 @@ while en_exploracion:
             actividades_realizadas = actividades_realizadas + 1
             muestras_recolectadas = muestras_recolectadas + 1
             puntos_cientificos = puntos_cientificos + 20
-            print("Actividad realizada: Recolectar muestra. Puntos obtenidos: 20")
+            print("\nActividad realizada: Recolectar muestra. Puntos obtenidos: 20")
+            print("Energía restante:", energia_disponible, "unidades | Provisiones restantes:", provisiones_disponibles, "unidades")
         else:
             print("Recursos insuficientes para realizar la actividad. La exploración finaliza.")
             en_exploracion = False
@@ -62,7 +63,8 @@ while en_exploracion:
             energia_disponible = energia_disponible - 5
             actividades_realizadas = actividades_realizadas + 1
             puntos_cientificos = puntos_cientificos + 8
-            print("Actividad realizada: Realizar observación. Puntos obtenidos: 8")
+            print("\nActividad realizada: Realizar observación. Puntos obtenidos: 8")
+            print("Energía restante:", energia_disponible, "unidades | Provisiones restantes:", provisiones_disponibles, "unidades")
         else:
             print("Recursos insuficientes para realizar la actividad. La exploración finaliza.")
             en_exploracion = False
