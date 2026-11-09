@@ -1,12 +1,12 @@
 # ==============================================================================
 # Archivo: ejercicio8_regreso.py
 # Curso: SOFT-01 Principios de Programación 1 - Sección SCV6
-# Integrante: Stwart Santamaria
+# Integrante: Stwart Santamaria Artavia
 # Fecha: 21/10/2026
-# Versión: 1.0
+# Versión: 2.0
 # Descripción: Evalúa la factibilidad del viaje de regreso (Caso A) o calcula
 #              los días de supervivencia estimada y recursos limitantes si la 
-#              tripulación queda varada (Caso B).
+#              tripulación queda varada (Caso B), mostrando un resumen final.
 # ==============================================================================
 
 # --- ENTRADA DE DATOS ---
@@ -29,6 +29,10 @@ if combustible >= combustible_necesario:
     consumo_oxigeno_dia = tripulantes * 2
     consumo_provisiones_dia = tripulantes * 1
     
+    print("\n--------------------------------------------------")
+    print(">>> EJECUCIÓN EVALUADA: CASO A (INICIO DE REGRESO) <<<")
+    print("--------------------------------------------------")
+    
     while en_regreso and dias_completados < dias_ida:
         # Verificar si todos los recursos alcanzan para el día actual
         if (combustible >= 8 and 
@@ -43,45 +47,47 @@ if combustible >= combustible_necesario:
             provisiones = provisiones - consumo_provisiones_dia
             dias_completados = dias_completados + 1
             
-            print("Dia", dias_completados, "| Combustible:", combustible, "| Oxígeno:", oxigeno, "| Energía:", energia, "| Provisiones:", provisiones)
+            print("Día", dias_completados, "| Combustible:", combustible, "| Oxígeno:", oxigeno, "| Energía:", energia, "| Provisiones:", provisiones)
         else:
             en_regreso = False
 
-    # Resultados del Caso A
+    # --- ENCABEZADO DE RESUMEN FINAL (CASO A) ---
+    print("\n==================================================")
+    print("           RESUMEN FINAL DE LA EVALUACIÓN        ")
+    print("==================================================")
+    print("CASO EVALUADO: Caso A - Viaje de regreso iniciado")
+    
     if dias_completados == dias_ida:
-        print("\nLa tripulación regresó exitosamente a la Tierra.")
+        print("ESTADO: Regreso exitoso a la Tierra")
+        print("--------------------------------------------------")
         print("Combustible restante:", combustible, "unidades")
         print("Oxígeno restante:", oxigeno, "unidades")
         print("Energía restante:", energia, "unidades")
         print("Provisiones restantes:", provisiones, "unidades")
     else:
         dia_interrumpido = dias_completados + 1
-        print("\nEl regreso se interrumpió en el día", dia_interrumpido, ".")
+        print("ESTADO: Regreso interrumpido en el día", dia_interrumpido)
+        print("--------------------------------------------------")
         
         # Evaluar recursos insuficientes en orden: oxígeno, energía, provisiones
         if oxigeno < consumo_oxigeno_dia:
-            print("Recurso insuficiente: oxigeno")
+            print("Recurso insuficiente: oxígeno")
         if energia < 5:
-            print("Recurso insuficiente: energia")
+            print("Recurso insuficiente: energía")
         if provisiones < consumo_provisiones_dia:
             print("Recurso insuficiente: provisiones")
             
         print("La tripulación no completó el regreso.")
+    print("==================================================")
 
 else:
     # ==========================================================================
     # CASO B: LA NAVE NO INICIA EL REGRESO (TRIPULACIÓN VARADA)
     # ==========================================================================
-    print("\nLa tripulación quedó varada en el destino.")
-    
     # Cálculo de días por recurso mediante división entera
     dias_oxigeno = oxigeno // (tripulantes * 2)
     dias_energia = energia // 5
     dias_provisiones = provisiones // tripulantes
-    
-    print("Días por oxígeno:", dias_oxigeno)
-    print("Días por energía:", dias_energia)
-    print("Días por provisiones:", dias_provisiones)
     
     # Obtención del menor valor sin utilizar la función min()
     supervivencia_minima = dias_oxigeno
@@ -90,27 +96,38 @@ else:
     if dias_provisiones < supervivencia_minima:
         supervivencia_minima = dias_provisiones
         
-    print("Supervivencia estimada:", supervivencia_minima, "días")
-    
     # Identificación de recursos limitantes (manejo de empates)
     recursos_limitantes = ""
     es_primer_recurso = True
     
     if dias_oxigeno == supervivencia_minima:
-        recursos_limitantes = "oxigeno"
+        recursos_limitantes = "oxígeno"
         es_primer_recurso = False
         
     if dias_energia == supervivencia_minima:
         if es_primer_recurso:
-            recursos_limitantes = "energia"
+            recursos_limitantes = "energía"
             es_primer_recurso = False
         else:
-            recursos_limitantes = recursos_limitantes + ", energia"
+            recursos_limitantes = recursos_limitantes + ", energía"
             
     if dias_provisiones == supervivencia_minima:
         if es_primer_recurso:
             recursos_limitantes = "provisiones"
         else:
             recursos_limitantes = recursos_limitantes + ", provisiones"
-            
+
+    # --- ENCABEZADO DE RESUMEN FINAL (CASO B) ---
+    print("\n==================================================")
+    print("           RESUMEN FINAL DE LA EVALUACIÓN        ")
+    print("==================================================")
+    print("CASO EVALUADO: Caso B - Tripulación varada en el destino")
+    print("ESTADO: Sin combustible suficiente para despegue")
+    print("--------------------------------------------------")
+    print("Días de supervivencia por oxígeno:", dias_oxigeno)
+    print("Días de supervivencia por energía:", dias_energia)
+    print("Días de supervivencia por provisiones:", dias_provisiones)
+    print("--------------------------------------------------")
+    print("Supervivencia estimada:", supervivencia_minima, "días")
     print("Recurso(s) limitante(s):", recursos_limitantes)
+    print("==================================================")
